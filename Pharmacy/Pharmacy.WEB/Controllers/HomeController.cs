@@ -17,8 +17,20 @@ namespace Pharmacy.WEB.Controllers
         {
             _logger = logger;
         }
-
+        [Route("Index")]
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Route("Blog")]
+        public IActionResult Blog()
+        {
+            return View();
+        }
+
+        [Route("Contact")]
+        public IActionResult Contact()
         {
             return View();
         }
