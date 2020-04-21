@@ -34,7 +34,31 @@ namespace Pharmacy.WEB.Controllers
         {
             return View();
         }
-
+        [Route("Single")]
+        public IActionResult Single()
+        {
+            return View();
+        }
+        [Route("About")]
+        public IActionResult About()
+        {
+            return View();
+        }
+        [Route("Portfolio")]
+        public IActionResult Portfolio()
+        {
+            return View();
+        }
+        [Route("PortfolioIndex")]
+        public IActionResult PortfolioIndex()
+        {
+            return View();
+        }
+        [Route("Styles")]
+        public IActionResult Styles()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
