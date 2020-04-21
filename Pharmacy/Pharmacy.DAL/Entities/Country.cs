@@ -7,9 +7,8 @@ namespace Pharmacy.DAL.Entities
     public class Country
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Capital { get; set; }
 
-        public List<Country> Countries { get; set; }
+        public List<Manufacturer> Manufacturers { get; set; }
+        public List<CountryLangLink> CountryLangLinks { get; set; }
     }
 }

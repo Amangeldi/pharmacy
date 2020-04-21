@@ -4,14 +4,15 @@ using System.Text;
 
 namespace Pharmacy.DAL.Entities
 {
-    public class Manufacturer
+    public class CountryLangLink
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Capital { get; set; }
 
         public int CountryId { get; set; }
         public Country Country { get; set; }
-
-        public List<Medicament> Medicaments { get; set; }
+        public int LangId { get; set; }
+        public Lang Lang { get; set; }
     }
 }

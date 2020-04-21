@@ -11,6 +11,10 @@
     <ProjectReference Include="..\Pharmacy.BLL\Pharmacy.BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+
 
 
 </Project>

@@ -8,6 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Pharmacy.DAL.Data;
+using Pharmacy.DAL.EF;
+using Pharmacy.DAL.Entities;
 
 namespace Pharmacy.WEB
 {
@@ -22,10 +25,10 @@ namespace Pharmacy.WEB
                 var services = scope.ServiceProvider;
                 try
                 {
-                    //var userManager = services.GetRequiredService<UserManager<User>>();
-                    //var context = services.GetRequiredService<ApiContext>();
-                    //var rolesManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-                    //await SampleData.Initialize(userManager, context, rolesManager);
+                    var userManager = services.GetRequiredService<UserManager<User>>();
+                    var context = services.GetRequiredService<ApiContext>();
+                    var rolesManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                    await SampleData.Initialize(userManager, context, rolesManager);
                 }
                 catch (Exception ex)
                 {

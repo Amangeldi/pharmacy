@@ -6,5 +6,6 @@ namespace Pharmacy.DAL.Entities
 {
     public class Author : User
     {
+        public List<News> News { get; set; }
     }
 }

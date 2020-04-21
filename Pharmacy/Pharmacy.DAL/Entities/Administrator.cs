@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pharmacy.DAL.Entities
 {
-    public class Admin : User
+    public class Administrator : User
     {
     }
 }

@@ -7,6 +7,9 @@ namespace Pharmacy.DAL.Entities
     public class Category
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public bool Status { get; set; }
+
+        public List<CategoryLangLink> CategoryLangLinks { get; set; }
+        public List<Medicament> Medicaments { get; set; }
     }
 }
