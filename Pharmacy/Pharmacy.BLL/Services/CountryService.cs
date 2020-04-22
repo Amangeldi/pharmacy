@@ -58,7 +58,7 @@ namespace Pharmacy.BLL.Services
                     Country country = db.Countries.Find(CountryId);
                     db.Countries.Remove(country);
                     db.SaveChanges();
-                    List<CountryLangLink> countryLangLinks = db.CountryLangLinks.Where(p => p.CountryId == CountryId).ToList();
+                    IEnumerable<CountryLangLink> countryLangLinks = db.CountryLangLinks.Where(p => p.CountryId == CountryId);
                     db.CountryLangLinks.RemoveRange(countryLangLinks);
                     db.SaveChanges();
                     transaction.Commit();
