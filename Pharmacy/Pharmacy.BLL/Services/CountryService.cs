@@ -74,7 +74,7 @@ namespace Pharmacy.BLL.Services
         public IEnumerable<CountryLangDTO> GetCountries(int LangId)
         {
             IEnumerable<CountryLangLink> countryLangLinks = db.CountryLangLinks.Where(p => p.LangId == LangId);
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CountryLangLink, CountryLangDTO>()).CreateMapper();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<IEnumerable<CountryLangLink>, IEnumerable<CountryLangDTO>>()).CreateMapper();
             IEnumerable<CountryLangDTO> countryLangDTOs = mapper.Map<IEnumerable<CountryLangLink>, IEnumerable<CountryLangDTO>>(countryLangLinks);
             return countryLangDTOs;
         }
