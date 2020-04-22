@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Pharmacy.BLL.DTO;
 using Pharmacy.BLL.Interfaces;
+using Pharmacy.DAL.Entities;
 
 namespace Pharmacy.WEB.Controllers.Api
 {
@@ -28,10 +29,10 @@ namespace Pharmacy.WEB.Controllers.Api
             }
             catch (Exception ex)
             {
-                var er = new { error = ex.Message };
-                return Ok(er);
+                var err = new { error = ex.Message };
+                return Ok(err);
             }
-            return Ok();
+            return Ok(CategoryRegistrationDTO);
         }
         [HttpGet("GetCategory")]
         public ActionResult<CategoryLangDTO> GetCategory(int CategoryId, int LangId)
@@ -45,6 +46,21 @@ namespace Pharmacy.WEB.Controllers.Api
             {
                 return Content(ex.Message);
             }
+        }
+        [HttpGet("GetCategories")]
+        public IEnumerable<CategoryLangLink> GetCategories(int LangId)
+        {
+            return serv.GetCategories(LangId);
+        }
+        [HttpDelete("DeleteCategory")]
+        public ActionResult DeleteCategory(int CategoryId)
+        {
+            if(serv.DeleteCategory(CategoryId))
+            {
+                return Ok("Категория "+CategoryId+" удалена");
+            }
+            var err = new { error = "Категория " + CategoryId + " не была удалена" };
+            return Ok(err);
         }
     }
 

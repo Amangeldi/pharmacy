@@ -6,7 +6,7 @@ namespace Pharmacy.BLL.DTO
 {
     public class CountryLangDTO
     {
-        public int Id { get; set; }
+        public int CountryId { get; set; }
         public string Name { get; set; }
         public string Capital { get; set; }
         public int LangId { get; set; }

@@ -39,8 +39,8 @@ namespace Pharmacy.BLL.Services
             CategoryLangLink categoryTKM = new CategoryLangLink
             {
                 Category = category,
-                Description = categoryRegistrationDTO.DescriptionRUS,
-                Name = categoryRegistrationDTO.NameRUS,
+                Description = categoryRegistrationDTO.DescriptionTKM,
+                Name = categoryRegistrationDTO.NameTKM,
                 Lang = langs.Where(p => p.Name == "TKM").First()
             };
             await db.CategoryLangLinks.AddRangeAsync(categoryENG, categoryRUS, categoryTKM);
