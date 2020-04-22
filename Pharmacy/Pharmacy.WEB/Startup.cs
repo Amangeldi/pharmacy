@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Pharmacy.BLL.Interfaces;
+using Pharmacy.BLL.Services;
 using Pharmacy.DAL.EF;
 using Pharmacy.DAL.Entities;
 
@@ -73,6 +75,8 @@ namespace Pharmacy.WEB
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+            services.AddTransient(typeof(IUserRegistrationService<,>), typeof(UserRegistrationService<,>));
+            services.AddTransient(typeof(ICategoryService),typeof(CategoryService));
 
         }
 

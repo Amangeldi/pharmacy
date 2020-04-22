@@ -18,7 +18,7 @@ namespace Pharmacy.DAL.Entities
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
-        public List<MedicamentLangLink> medicamentLangLinks { get; set; }
+        public List<MedicamentLangLink> MedicamentLangLinks { get; set; }
         
     }
 }

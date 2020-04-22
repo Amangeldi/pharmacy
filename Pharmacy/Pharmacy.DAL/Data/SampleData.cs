@@ -59,6 +59,18 @@ Unlike anesthetics, analgesics act selectively. They relieve or eliminate pain w
                 MedicamentLangLink AmigreninRUS = new MedicamentLangLink { Medicament = Amigrenin, Lang = RUS, Description = "Код ATX: N02CC01", MedicamentName = "АМИГРЕНИН" };
                 MedicamentLangLink AmigreninTKM = new MedicamentLangLink { Medicament = Amigrenin, Lang = TKM, Description = "ATH Kod: N02CC01", MedicamentName = "Amigrenin" };
                 await context.MedicamentLangLinks.AddRangeAsync(AmigreninENG, AmigreninRUS, AmigreninTKM);
+                Medicament Analgin = new Medicament { Category = Analgesics, Manufacturer = Werofarm };
+                await context.Medicaments.AddAsync(Analgin);
+                MedicamentLangLink AnalginENG = new MedicamentLangLink { Medicament = Analgin, Lang = ENG, Description = "Code ATC: N02BB02", MedicamentName = "Analgin" };
+                MedicamentLangLink AnalginRUS = new MedicamentLangLink { Medicament = Analgin, Lang = RUS, Description = "Код ATX: N02BB02", MedicamentName = "Анальгин" };
+                MedicamentLangLink AnalginTKM = new MedicamentLangLink { Medicament = Analgin, Lang = TKM, Description = "ATH Kod: N02BB02", MedicamentName = "Analgin" };
+                await context.MedicamentLangLinks.AddRangeAsync(AnalginENG, AnalginRUS, AnalginTKM);
+                Medicament Novocaine = new Medicament { Category = Anesthetics, Manufacturer = Werofarm };
+                await context.Medicaments.AddAsync(Novocaine);
+                MedicamentLangLink NovocaineENG = new MedicamentLangLink { Medicament = Novocaine, Lang = ENG, Description = "Transparent, colorless or slightly colored liquid", MedicamentName = "Novocaine" };
+                MedicamentLangLink NovocaineRUS = new MedicamentLangLink { Medicament = Novocaine, Lang = RUS, Description = "Прозрачная бесцветная или слегка окрашенная жидкость", MedicamentName = "Новокаин" };
+                MedicamentLangLink NovocaineTKM = new MedicamentLangLink { Medicament = Novocaine, Lang = TKM, Description = "Reňksiz ýa-da birneme reňkli suwuklyk", MedicamentName = "Nowokain" };
+                await context.MedicamentLangLinks.AddRangeAsync(NovocaineENG, NovocaineRUS, NovocaineTKM);
                 await context.SaveChangesAsync();
             }
         }

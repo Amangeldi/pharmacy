@@ -15,11 +15,5 @@ namespace Pharmacy.WEB.Controllers
         public HomeController()
         {
         }
-        [Route("")]
-        [Route("Index")]
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }
