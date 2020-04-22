@@ -37,6 +37,8 @@ namespace Pharmacy.WEB
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApiContext>();
+            services.AddIdentityCore<User>()
+                .AddEntityFrameworkStores<ApiContext>();
             services.AddControllersWithViews();
             services.AddDbContext<ApiContext>(options =>
                 options.UseSqlServer(connection));
@@ -99,6 +101,7 @@ namespace Pharmacy.WEB
             app.UseStaticFiles();
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
