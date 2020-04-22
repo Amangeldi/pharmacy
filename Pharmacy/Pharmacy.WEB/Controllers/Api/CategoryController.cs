@@ -47,7 +47,7 @@ namespace Pharmacy.WEB.Controllers.Api
                 return Content(ex.Message);
             }
         }
-        [HttpGet("GetCategories")]
+        [HttpGet("GetCategories/{LangId}")]
         public IEnumerable<CategoryLangLink> GetCategories(int LangId)
         {
             return serv.GetCategories(LangId);

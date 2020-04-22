@@ -43,7 +43,7 @@ Unlike anesthetics, analgesics act selectively. They relieve or eliminate pain w
 
                 CategoryLangLink AnestheticENG = new CategoryLangLink { Category = Anesthetics, Lang = ENG, Name = "Anesthetics", Description = "Drugs with the ability to cause anesthesia." };
                 CategoryLangLink AnestheticRUS = new CategoryLangLink { Category = Anesthetics, Lang = RUS, Name = "Анестетики", Description = "Лекарственные средства, обладающие способностью вызывать анестезию." };
-                CategoryLangLink AnestheticTKM = new CategoryLangLink { Category = Anesthetics, Lang = ENG, Name = "Anesthetics", Description = "Anestetikler barada Türkmençe." };
+                CategoryLangLink AnestheticTKM = new CategoryLangLink { Category = Anesthetics, Lang = TKM, Name = "Anesthetics", Description = "Anestetikler barada Türkmençe." };
                 await context.CategoryLangLinks.AddRangeAsync(AnalgesicENG, AnalgesicRUS, AnalgesicTKM, AnestheticENG, AnestheticRUS, AnestheticTKM);
                 Country Russia = new Country();
                 await context.Countries.AddAsync(Russia);

@@ -73,13 +73,16 @@ namespace Pharmacy.BLL.Services
 
         public MedicamentLangDTO GetMedicament(int MedicamentId, int LangId)
         {
-            throw new NotImplementedException();
+            MedicamentLangLink medicamentLangLink = db.MedicamentLangLinks.Where(p => p.LangId == LangId&&p.MedicamentId==MedicamentId).FirstOrDefault();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<MedicamentLangLink, MedicamentLangDTO>()).CreateMapper();
+            MedicamentLangDTO medicamentLangDTO = mapper.Map<MedicamentLangLink, MedicamentLangDTO>(medicamentLangLink);
+            return medicamentLangDTO;
         }
 
         public IEnumerable<MedicamentLangDTO> GetMedicaments(int LangId)
         {
             IEnumerable<MedicamentLangLink> medicamentLangLinks = db.MedicamentLangLinks.Where(p => p.LangId == LangId);
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<IEnumerable<MedicamentLangLink>, IEnumerable<MedicamentLangDTO>>()).CreateMapper();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<MedicamentLangLink, MedicamentLangDTO>()).CreateMapper();
             IEnumerable<MedicamentLangDTO> medicamentLangDTOs = mapper.Map<IEnumerable<MedicamentLangLink>, IEnumerable<MedicamentLangDTO>>(medicamentLangLinks);
             return medicamentLangDTOs;
         }
@@ -93,11 +96,10 @@ namespace Pharmacy.BLL.Services
                 MedicamentLangDTO medicament = GetMedicamentsOfManufacturer(LangId, manufacturer.Id).First();
                 if(!medicaments.Contains(medicament))
                 {
-                    medicaments
+                    medicaments.Add(medicament);
                 }
             }
-            
-            throw new NotImplementedException();
+            return medicaments;
         }
 
         public IEnumerable<MedicamentLangDTO> GetMedicamentsOfManufacturer(int LangId, int ManufacturerId)

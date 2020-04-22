@@ -79,6 +79,7 @@ namespace Pharmacy.WEB
             services.AddTransient(typeof(ICategoryService),typeof(CategoryService));
             services.AddTransient(typeof(ICountryService), typeof(CountryService));
             services.AddTransient(typeof(IManufacturerService), typeof(ManufacturerService));
+            services.AddTransient(typeof(IMedicamentService), typeof(MedicamentService));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
